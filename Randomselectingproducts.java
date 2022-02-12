@@ -46,6 +46,7 @@ public class Randomselectingproducts {
 			if (productList.contains(checkproductname)) {
 				driver.findElements(By.xpath("//div[@class='hoverimageArea']/div/img")).get(i).click();
 //				break;
+//				New line added 13/2/2022
 			}
 		}
 	}
