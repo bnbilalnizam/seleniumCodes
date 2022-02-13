@@ -34,18 +34,18 @@ public class Randomselectingproducts {
 	}
 
 	public static void getProducts(WebDriver driver) {
-		String[] productsNeeded = {"ASTR","TESTING"};
-		List<WebElement> allProducts = driver.findElements(By.xpath("//span[@class='collection_product_vendor_heading']"));
-		
-		for (int i =0; i < allProducts.size(); i++) {
+		String[] productsNeeded = { "WAYF" };
+		List<WebElement> allProducts = driver.findElements(By.xpath("//div[@class='product-info-inner']/a/h2/span"));
+
+		for (int i = 0; i < allProducts.size(); i++) {
 			String checkproductname = allProducts.get(i).getText();
 			System.out.println(checkproductname);
-			
+
 			List productList = Arrays.asList(productsNeeded);
-			
+
 			if (productList.contains(checkproductname)) {
-				driver.findElements(By.xpath("//div[@class='hoverimageArea']/div/img")).get(i).click();
-//				break;
+				driver.findElements(By.xpath("//div[@class='hoverimageArea']/div")).get(i).click();
+				break;
 //				New line added 13/2/2022
 			}
 		}
