@@ -1,5 +1,9 @@
 package automation;
 
+import java.util.Set;
+
+import javax.swing.text.html.HTMLDocument.Iterator;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -27,16 +31,24 @@ driver.get("http://qaclickacademy.com/practice.php");
 		
 		//4- click on each link in the coloumn and check if the pages are opening-
 		for(int i=1;i<coloumndriver.findElements(By.tagName("a")).size();i++)
-		{
+{
 			
+			String clickonlinkTab=Keys.chord(Keys.CONTROL,Keys.ENTER);
 			
-			coloumndriver.findElements(By.tagName("a")).get(i).click();
+			coloumndriver.findElements(By.tagName("a")).get(i).sendKeys(clickonlinkTab);
 			Thread.sleep(5000L);
 			
-		}
-	
-			
+		}// opens all the tabs
+		Set<String> abc=driver.getWindowHandles();//4
+		java.util.Iterator<String> it=abc.iterator();
 		
+		while(it.hasNext())
+		{
+			
+		   driver.switchTo().window(it.next());
+		   System.out.println(driver.getTitle());
+		
+		}
 		
 	}
 
