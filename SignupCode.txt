@@ -1,0 +1,142 @@
+package automation;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+public class FirstJavaprogram {
+
+public static void main(String[] args) {
+
+String email1;
+int number=10;
+
+
+for (int i=1; i<=number; i++)
+{  
+email1= ("testfdw"+ i +"@yopmail.com");
+//email1=("testuser-7@yopmail.com");
+
+System.setProperty("webdriver.chrome.driver","/Users/bilalNizam/Desktop/chromedriver/chromedriver");
+WebDriver driver= new ChromeDriver();
+
+driver.manage().timeouts().implicitlyWait(40,TimeUnit.SECONDS);
+driver.get("https://dev.fashionpass.com/");
+
+driver.findElement(By.xpath("//header/div[2]/div[1]/div[1]/div[3]/nav[1]/div[1]/ul[1]/div[1]/a[1]")).click();
+
+driver.findElement(By.cssSelector(".email-box-home[_ngcontent-c1] #email[_ngcontent-c1]")).sendKeys(email1);
+driver.findElement(By.cssSelector("#regForm[_ngcontent-c1] button[_ngcontent-c1]")).click();
+
+
+WebElement firstName= driver.findElement(By.id("first_name"));
+firstName.sendKeys("test");
+
+WebElement lastName= driver.findElement(By.xpath("//*[@id=\"last_name\"]"));
+lastName.sendKeys("user");
+
+WebElement birthDay= driver.findElement(By.xpath("//*[@id=\"birthday\"]"));
+birthDay.sendKeys("02022000");
+
+WebElement password= driver.findElement(By.xpath("//*[@id=\"password\"]"));
+password.sendKeys("testing");
+
+driver.findElement(By.cssSelector("#regForm[_ngcontent-c5] button[_ngcontent-c5]")).click();
+driver.findElement(By.xpath("//*[@id=\"pricing\"]/div[3]/div/div[2]/div[2]/a")).click();
+
+WebElement debitCard= driver.findElement(By.xpath("//*[@id=\"card_number\"]"));
+debitCard.sendKeys("5555555555554444");
+
+WebElement expMonth= driver.findElement(By.xpath("//*[@id=\"card_expiry_val\"]"));
+expMonth.sendKeys("0922");
+
+WebElement cvc= driver.findElement(By.xpath("//*[@id=\"regForm\"]/div/div[2]/div/div[1]/table/tbody/tr[3]/td/table/tbody/tr/td[2]/input"));
+cvc.sendKeys("774");
+
+WebElement billingZip= driver.findElement(By.xpath("//*[@id=\"regForm\"]/div/div[2]/div/div[1]/table/tbody/tr[3]/td/table/tbody/tr/td[3]/input"));
+billingZip.sendKeys("90064");
+
+WebElement mobileNumber= driver.findElement(By.xpath("//*[@id=\"phone_number\"]"));
+mobileNumber.sendKeys("202"+i+ "346546");
+
+driver.manage().timeouts().implicitlyWait(40,TimeUnit.SECONDS);
+WebElement radiob = driver.findElement(By.xpath("//body/div[1]/app-purchase-plan[1]/div[1]/div[1]/form[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/label[1]"));
+radiob.click();
+System.out.println("Checkbox is selected");
+
+WebElement radioa = driver.findElement(By.xpath("//body/div[1]/app-purchase-plan[1]/div[1]/div[1]/form[1]/div[1]/div[2]/div[1]/div[4]/div[3]/label[1]"));
+  radioa.click();
+  System.out.println("Checkbox is selected");
+
+  driver.findElement(By.xpath("//button[@id='nextBtn']")).click();
+  System.out.println("Create membership is selected");
+ 
+  driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+ 
+  WebElement radio1 = driver.findElement(By.xpath("//input[@id='exampleCheck1']"));
+  radio1.click();
+ 
+  WebElement radio2 = driver.findElement(By.xpath("//input[@id='exampleCheck2']"));
+  radio2.click();
+ 
+  WebElement radio3 = driver.findElement(By.xpath("//input[@id='exampleCheck3']"));
+  radio3.click();
+ 
+  WebElement radio4 = driver.findElement(By.xpath("//input[@id='exampleCheck4']"));
+  radio4.click();
+ 
+  WebElement radio5 = driver.findElement(By.xpath("//input[@id='exampleCheck5']"));
+  radio5.click();
+
+  driver.findElement(By.xpath("//button[contains(text(),'START SHOPPING!')]")).click();
+  System.out.println("Start Shopping is selected");
+
+  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+ 
+  Select heightFt = new Select(driver.findElement(By.xpath("//body/div[2]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/select[1]")));
+  heightFt.selectByVisibleText("5");
+ 
+  Select heightIn = new Select(driver.findElement(By.xpath("//body/div[2]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/select[2]")));
+  heightIn.selectByVisibleText("2");
+ 
+  driver.findElement(By.xpath("//input[@id='customer_weight']")).sendKeys("56");
+ 
+  Select bodyType = new Select(driver.findElement(By.xpath("//body/div[2]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/select[1]")));
+  bodyType.selectByVisibleText("Rectangle");
+ 
+  Select dressSize = new Select(driver.findElement(By.xpath("//body/div[2]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[4]/select[1]")));
+  dressSize.selectByVisibleText("XS");
+ 
+  Select dressNumber = new Select(driver.findElement(By.xpath("//body/div[2]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[4]/select[2]")));
+  dressNumber.selectByVisibleText("4");
+ 
+  Select topSize = new Select(driver.findElement(By.xpath("//body/div[2]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[5]/select[1]")));
+  topSize.selectByVisibleText("XS");
+ 
+  Select braSize = new Select(driver.findElement(By.xpath("//body/div[2]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[6]/select[1]")));
+  braSize.selectByVisibleText("30");
+ 
+  Select braSize1 = new Select(driver.findElement(By.xpath("//body/div[2]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[6]/select[2]")));
+  braSize1.selectByVisibleText("AA");
+ 
+  Select jeansSize = new Select(driver.findElement(By.xpath("//body/div[2]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[7]/select[1]")));
+  jeansSize.selectByVisibleText("24");
+ 
+  WebElement radio6 = driver.findElement(By.xpath("//body/div[2]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[9]/label[1]/input[1]"));
+  radio6.click();
+ 
+  driver.findElement(By.xpath("//button[contains(text(),'COMPLETE PROFILE')]")).click();
+  System.out.println("Complete Profile Selected");
+   
+}
+
+
+}  
+
+
+}  
