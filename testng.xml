@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="Test1">
+    <classes>
+      <class name="testng.TestngFirstClass"/>
+      <class name="testng.TestbgSecondClass"/>
+    </classes>
+  </test>
+  
+  <test  name="TestingLogin">
+    <classes>
+      <class name="testng.TestLogin">
+     
+      <methods>
+     	<!--  <exclude name="MobileLoginFunction"/> -->
+     	 <!--  <exclude name="Mobile.*"/>  Comment code-->
+     	 <!--   <include name="Mobile.*"/> Comment code-->
+      </methods>
+      <!--  <package name="testng"/> -->
+    </class>
+      
+    </classes>
+  </test> 
+</suite> 
